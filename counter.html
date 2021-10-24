@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>counter project</title>
+    <style>
+      body {
+        background-color: royalblue;
+      }
+      .buttons {
+        height: 40vh;
+        width: 40vw;
+        margin: 200px auto;
+        text-align: center;
+        border: 10px solid orangered;
+        box-shadow: 1px 2px 3px 4px #111;
+      }
+      h1 {
+        color: snow;
+      }
+      button {
+        width: 80px;
+        padding: 5px;
+        cursor: pointer;
+        color: darkorange;
+        font-weight: bold;
+        font-size: 1rem;
+        margin: 10px;
+        background-color: deeppink;
+        box-shadow: 1px 2px 3px 4px #111;
+        color: #fff;
+      }
+      .count {
+        font-weight: bolder;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="buttons">
+        <h1>Welcome to Counter App</h1>
+        <hr />
+        <p class="count">0</p>
+        <button class="subtract">Subtract</button>
+        <button class="reset">Reset</button>
+        <button class="add">Add</button>
+      </div>
+    </div>
+    <script>
+      const count = document.querySelector(".count");
+      const subtract = document.querySelector(".subtract");
+      const reset = document.querySelector(".reset");
+      const add = document.querySelector(".add");
+      document.querySelector(".buttons").addEventListener("click", (e) => {
+        if (e.target.classList.contains("subtract")) {
+          count.innerHTML--;
+          setColor();
+        }
+        if (e.target.classList.contains("reset")) {
+          count.innerHTML = 0;
+        }
+        if (e.target.classList.contains("add")) {
+          count.innerHTML++;
+          setColor();
+        }
+      });
+      function setColor() {
+        if (count.innerHTML < 0) {
+          count.style.color = "yellow";
+        }
+        if (count.innerHTML > 0) {
+          count.style.color = "orange";
+        }
+      }
+    </script>
+  </body>
+</html>
